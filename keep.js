@@ -224,3 +224,53 @@ export function timeToMixJuice(name) {
     return 2.5
 }
 }
+///////////////////////////////////////////////
+useEffect(() => {
+    setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
+  }, [netflixOriginals])
+
+///////////////////////////////
+setAddedToList(
+  movies.findIndex((result) => result.data().id === movie?.id) !== -1
+),
+
+obj = { greeting: 'hello world' };
+
+obj.hasOwnProperty('greeting');
+// => true
+
+obj.hasOwnProperty('age');
+// => false
+//////////////////////////////////////
+export function createScoreBoard() {
+  const obj = {
+    "The Best Ever" : 1000000,
+  }
+  return obj;
+}
+///////////////////////////////
+export function addPlayer(scoreBoard, player, score) {
+  scoreBoard[player] = score;
+  return scoreBoard;
+}
+////////////////////////////////////
+export function removePlayer(scoreBoard, player) {
+  delete scoreBoard[player];
+  return scoreBoard;
+}
+//////////////////////////////////
+export function updateScore(scoreBoard, player, points) {
+  scoreBoard[player] +=  points;
+  return scoreBoard;
+}
+////////////////////////////////////
+export function applyMondayBonus(scoreBoard) {
+  for (let key in scoreBoard) {
+   scoreBoard[key]+= 100
+}
+  return scoreBoard
+}
+////////////////////////////
+export function normalizeScore(params) {
+  return params.normalizeFunction(params.score);
+}
