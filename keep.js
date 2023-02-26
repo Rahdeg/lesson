@@ -315,3 +315,125 @@ export function ticketStatus(tickets, ticketId) {
   return tickets[ticketId] ?? 'invalid ticket !!!';
 }
 ////////////////////////////////////////////
+return visitor?.gtc?.version;
+///////////////////////////////////
+Boolean(-1);
+// => true
+
+Boolean(0);
+// => false
+
+Boolean(' ');
+// => true
+
+Boolean('');
+// => false
+/////////////////////////////
+Note that because of the described rules, '0', 'false', [] and {} are truthy in JavaScript.
+////////////////////////////
+export function twoSum(array1, array2) {
+  let num1= Number(array1.join(''));
+  let num2= Number(array2.join(''));
+   return num1 + num2 ;
+ }
+///////////////////////////////////////////////////
+export function luckyNumber(value) {
+  const str = value.toString();
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr ;
+}
+/////////////////////////////////////////
+export function errorMessage(input) {
+  return Number(input) ? "" : (input ?? "") == "" ? "Required field" : "Must be a number besides 0";
+}
+//////////////////////////////////////////////////
+export class DnDCharacter {
+  strength = 0;
+  dexterity = 0;
+  constitution = 0;
+  intelligence = 0;
+  wisdom = 0;
+  charisma = 0;
+  hitpoints = 0;
+  constructor() {
+    this.strength = DnDCharacter.generateAbilityScore();
+    this.dexterity = DnDCharacter.generateAbilityScore();
+    this.constitution = DnDCharacter.generateAbilityScore();
+    this.intelligence = DnDCharacter.generateAbilityScore();
+    this.wisdom = DnDCharacter.generateAbilityScore();
+    this.charisma = DnDCharacter.generateAbilityScore();
+    this.hitpoints = 10 + DnDCharacter.getModifierFor(this.constitution)
+  }
+  public static generateAbilityScore(): number {
+    return Math.floor(new Array(4).fill(1 + Math.random() * 5).sort().slice(1).reduce((a, b) => a + b, 0))
+  }
+
+  public static getModifierFor(abilityValue: number): number {
+    return Math.floor((abilityValue - 10) / 2)
+  }
+}
+/////////////////////////////////
+
+export const scaleRecipe =(recipe,num)=>{
+  const amt = Number(num * (1/2) );
+  const newRecipe = {};
+ for (let key in recipe){
+ newRecipe[key] = recipe[key] * amt ;
+  }
+  return newRecipe
+  
+}
+////////////////////////////////////
+export const scaleRecipe =(recipe,num)=>{
+  const amt = Number(num * (1/2) );
+ for (let key in recipe){
+ recipe[key] = recipe[key] * amt ;
+  }
+  return recipes
+  
+}
+///////////////////////////////////////
+export const cookingStatus = (time) =>{
+  return time === 0 ? "Lasagna is done." : time > 0 ? "Not done, please wait." : !time ? "You forgot to set the timer.": null;
+}
+///////////////////////////////
+export const preparationTime = (layers,avgTime)=>{
+  return avgTime ? (layers.length) * avgTime : (layers.length) * 2 ;
+}
+//////////////////////////////////////////
+export const quantities = (layers) =>{
+  const noodles = "noodles";
+  const sauce = "sauce";
+  const countNoodles = layers.reduce((acc,val)=>{
+    if(val === noodles ){
+      acc++;
+    }
+    return acc;
+  },0)
+  const countSauce = layers.reduce((acc,val)=>{
+    if(val === sauce ){
+      acc++;
+    }
+    return acc;
+  },0)
+  return {
+    noodles: 50 * countNoodles, 
+    sauce: 0.2 * countSauce
+  }
+}
+/////////////////////////////////
+export const addSecretIngredient = (friendList, myList) =>{
+  const toAdd = friendList[friendList.length - 1];
+  myList.push(toAdd);
+}
+///////////////////////////////////////////////
+export const scaleRecipe =(recipe,num)=>{
+  const amt = Number(num * (1/2) );
+  const newRecipe = {};
+ for (let key in recipe){
+ newRecipe[key] = recipe[key] * amt ;
+  }
+  return newRecipe
+  
+}
+///////////////////////////////////////
