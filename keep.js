@@ -437,3 +437,39 @@ export const scaleRecipe =(recipe,num)=>{
   
 }
 ///////////////////////////////////////
+export function buildSign(occasion, name) {
+  return `Happy ${occasion} ${name}!`
+}
+///////////////////////////////
+export function buildBirthdaySign(age) {
+  return `Happy Birthday! What a ${age >= 50 ? 'mature' : 'young'} fellow you are.`
+}
+//////////////////////////////////
+export function graduationFor(name, year) {
+  return `Congratulations ${name}!\nClass of ${year}`
+}
+////////////////////////////
+export function costOf(sign, currency) {
+  const lent = sign.length * 2 + 20;
+  return `Your sign costs ${lent.toFixed(2)} ${currency}.`
+  
+}
+//////////////////////////////////////////
+export function isPangram(sentence : string) : Boolean {
+ let lettersSeen : boolean[] = [];
+
+  for (let i = 0; i < sentence.length; i++) {
+    let charCode = sentence.toLowerCase().charCodeAt(i);
+    
+     if (charCode >= 97 && charCode <= 122) {
+      lettersSeen[charCode - 97] = true;
+    }
+  } 
+   for (let i = 0; i < 26; i++) {
+    if (!lettersSeen[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+////////////////////////
