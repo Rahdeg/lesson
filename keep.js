@@ -473,3 +473,38 @@ export function isPangram(sentence : string) : Boolean {
   return true;
 }
 ////////////////////////
+
+export function translate2d(dx, dy) {
+  return (x,y)=>[x + dx , y + dy];
+}
+/////////////////////////
+
+export function scale2d(sx, sy) {
+  return (x,y)=>[x * sx, y * sy];
+}
+/////////////////////////////////
+
+export function composeTransform(f, g) {
+  return (x,y)=> g(...f(x,y));
+}
+//////////////////////////////////////
+export function memoizeTransform(f) {
+  let x0, y0, result;
+  return (x, y) => ((x == x0 && y == y0) ? result : result = f(x0 = x, y0 = y));
+}
+///////////////////////////////
+const isQuestion = (message: string): boolean => /[?]$/.test(message);
+const isYell = (message: string): boolean => !/[a-z]/.test(message) &&
+        !/[\u00F0-\u02AF]/.test(message) && /[A-Z]/.test(message);
+const isNothing = (message: string): boolean => /^\s*$/.test(message);
+
+export function hey(message: string): string {
+ message = message.trim()
+    return isYell(message) && isQuestion(message) ? 'Calm down, I know what I\'m doing!' :
+        isYell(message) ? 'Whoa, chill out!' :
+        isQuestion(message) ? 'Sure.' :
+        isNothing(message) ? 'Fine. Be that way!' :
+        'Whatever.'
+}
+//////////////////////////////////////////
+
