@@ -1,3 +1,5 @@
+npx create-next-app --example with-tailwindcss chatgpt
+
 export interface colorBand {
   [color : string]: string;
 }
@@ -508,3 +510,92 @@ export function hey(message: string): string {
 }
 //////////////////////////////////////////
 
+export function onSuccess() {
+  notify({message : 'SUCCESS'}) 
+ }
+
+/////////////////////////////////////////////////////
+export function onError() {
+  notify({message : 'ERROR'})
+}
+
+////////////////////////////
+export function orderFromGrocer(query, onSuccessCallback, onErrorCallback) {
+  // implement the orderFromGrocer function to order the query
+  order(query, onSuccessCallback, onErrorCallback);
+}
+/////////////////////////////////////
+
+export function postOrder(variety, quantity) {
+  //implement the postOrder function to create a query and order
+   order({variety, quantity}, onSuccess, onError);
+}
+/////////////////////////////////
+export class Matrix {
+  rows: number[][];
+  columns: number[][];
+  constructor(block: string) {
+    this.rows = block.split('\n').map(r => r.split(' ').map(Number));
+    this.columns = this.rows.map((_r, ix) => this.rows.map(row => row[ix]));
+  }
+}
+/////////////////////////
+const numberOfMoons = [0, 2, 14];
+const [venus, mars, neptune] = numberOfMoons;
+
+neptune;
+// => 14
+//////////////////////////
+rest///left side
+const [a, b, ...everythingElse] = [0, 1, 1, 2, 3, 5, 8];
+
+everythingElse;
+// => [1, 2, 3, 5, 8]
+////////////////////////////////////
+right side of assignment // anywhere
+const oneToFive = [1, 2, 3, 4, 5];
+const oneToTen = [...oneToFive, 6, 7, 8, 9, 10];
+
+oneToTen;
+// => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+/////////////////////////////////////
+export function getFirstCard(deck) {
+  const [a,...rest]= deck;
+  return a;
+}
+///////////////////////////////////
+export function getSecondCard(deck) {
+  const [a,b,...rest]= deck;
+  return b;
+}
+//////////////////////////////////
+export function swapTopTwoCards(deck) {
+  const [a,b,...rest]=deck;
+  return [b,a,...rest];
+}
+///////////////////////
+export function discardTopCard(deck) {
+  const [a,...rest]= deck;
+   return [a,rest];
+ }
+ /////////////////////////////////
+ export function insertFaceCards(deck) {
+  const FACE_CARDS = ['jack', 'queen', 'king'];
+  const [a,...rest]= deck;
+  return [a,...FACE_CARDS,...rest];
+}
+///////////////////////
+// List of random first and last names
+const firstNames = ['John', 'Emma', 'Sarah', 'Michael', 'Olivia', 'David', 'Sophia', 'Christopher', 'Ava', 'Matthew'];
+const lastNames = ['Smith', 'Johnson', 'Brown', 'Lee', 'Garcia', 'Davis', 'Hernandez', 'Jones', 'Martin', 'Wilson'];
+
+// Generate a random name
+function generateRandomName() {
+  const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+  const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+  return `${firstName} ${lastName}`;
+}
+
+// Example usage
+console.log(generateRandomName()); // Output: "John Smith", "Emma Davis", etc.
+///////////////////////////
