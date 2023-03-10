@@ -599,3 +599,115 @@ function generateRandomName() {
 // Example usage
 console.log(generateRandomName()); // Output: "John Smith", "Emma Davis", etc.
 ///////////////////////////
+const numbers = [1, 'two', 3, 'four'];
+numbers.indexOf('two');
+// => 1
+///////////////////////////
+const numbers = [1, 'two', 3, 'four'];
+numbers.includes(1);
+// => true
+numbers.includes('one');
+// => false
+///////////////////////////
+const numbers = [1, 3, 5, 7, 9];
+numbers.every((num) => num % 2 !== 0);
+// => true
+//////////////////////
+const numbers = [1, 3, 5, 7, 9];
+numbers.some((num) => num % 2 !== 0);
+// => true
+////////////////////
+const numbers = [1, 3, 5, 7, 9];
+numbers.find((num) => num < 5);
+// => 1
+//////////////////////////////
+const numbers = [1, 3, 5, 7, 9];
+numbers.findIndex((num) => num > 7);
+// => 4
+numbers.findIndex((num) => num > 9);
+// => -1
+////////////////////////////////
+export function getCardPosition(stack, card) {
+  return stack.indexOf(card);
+ }
+ //////////////////////////////////
+ export function doesStackIncludeCard(stack, card) {
+  return stack.includes(card);
+}
+///////////////////////////////
+export function isEachCardEven(stack) {
+  return stack.every(num=> num % 2 === 0);
+}
+//////////////////////////////
+export function doesStackIncludeOddCard(stack) {
+  return stack.some(num=> num % 2 !== 0 );
+}
+//////////////////////////////////
+export function getFirstOddCard(stack) {
+  return stack.find(num=> num % 2 !== 0);
+}
+////////////////////////////////
+export function getFirstEvenCardPosition(stack) {
+  return stack.findIndex(num=> num % 2 === 0);
+}
+//////////////////////////////////////
+export class Size {
+  constructor(width=80, height=60) {
+    this.width = width;
+    this.height = height;
+    // this.engineRunning = false;
+  }
+
+  resize(newWidth,newHeight) {
+    this.width = newWidth;
+    this.height = newHeight;
+  }
+
+  // addGas(litre) {
+  //   // ...
+  // }
+}
+///////////////////////////////////////
+export class ProgramWindow {
+  constructor(screenSize, size, position) {
+    this.screenSize = new Size(800, 600);
+    this.size = new Size();
+    this.position = new Position();
+    // this.engineRunning = false;
+  }
+
+}
+///////////////////////////
+export class ProgramWindow {
+  constructor(screenSize, size, position) {
+    this.screenSize = new Size(800, 600);
+    this.size = new Size();
+    this.position = new Position();
+    // this.engineRunning = false;
+  }
+
+  resize(newSize) {
+    const maxWidth = this.screenSize.width - this.position.x
+    const maxHeight = this.screenSize.height - this.position.y
+    const newWidth = Math.max(1, Math.min(newSize.width, maxWidth))
+    const newHeight = Math.max(1, Math.min(newSize.height, maxHeight))
+    this.size.resize(newWidth, newHeight)
+    
+  }
+
+  move(newPosition) {
+    const maxX = this.screenSize.width - this.size.width;
+    const maxY = this.screenSize.height - this.size.height;
+    
+    const newX = Math.max(0, Math.min(newPosition.x, maxX))
+    const newY = Math.max(0, Math.min(newPosition.y, maxY))
+    this.position.move(newX, newY);
+  }
+}
+////////////////////////////////////////////////////
+const changeWindow =(ProgramWindow)=>{
+  programWindow.move(new Position());
+  programWindow.resize(new Size(400, 300));
+  programWindow.move(new Position(100, 150));
+  return programWindow
+}
