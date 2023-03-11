@@ -711,3 +711,49 @@ const changeWindow =(ProgramWindow)=>{
   programWindow.move(new Position(100, 150));
   return programWindow
 }
+///////////////////////////////////////////
+export class ArgumentError extends Error {}
+
+export class OverheatingError extends Error {
+  constructor(temperature) {
+    super(`The temperature is ${temperature} ! Overheating !`);
+    this.temperature = temperature;
+  }
+}
+//////////////////////////
+export function checkHumidityLevel(humidityPercentage) {
+if(humidityPercentage > 70){
+   throw new Error('Implement the reportOverheating function');
+}
+}
+//////////////////////////////////////////////////
+export function reportOverheating(temperature) {
+  if (temperature === null){
+    throw new ArgumentError(
+      'The sensor seems broken. Expected temperature, actual null.'
+    );
+  }
+  if(temperature < 500){
+    return ;
+  }
+  throw new OverheatingError(temperature);
+}
+////////////////////////////////////////
+export function monitorTheMachine({check,alertDeadSensor,alertOverheating,shutdown}) {
+  try {
+    check()
+  } catch (error) {
+    if(error instanceof ArgumentError){
+      alertDeadSensor();
+    }else if(error  instanceof OverheatingError ){
+      if(error.temperature < 600){
+        alertOverheating();
+      }else {
+      shutdown();
+    }
+    } else {
+     throw error;
+    }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////
