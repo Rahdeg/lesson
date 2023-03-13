@@ -757,3 +757,109 @@ export function monitorTheMachine({check,alertDeadSensor,alertOverheating,shutdo
   }
 }
 ///////////////////////////////////////////////////////////////////////////////////
+let arr = [1, 2, 3, 4];
+
+const newArr = arr.map((value) => value - 1);
+console.log(newArr);
+// => [0, 1, 2, 3]
+console.log(arr);
+// => [1, 2, 3, 4]
+///////////////////////////////
+let arr = [1, 2, 3, 4];
+
+arr.filter((value) => value % 2 === 0);
+// => [2, 4]
+///////////////////////////////
+let arr = [1, 2, 3, 4];
+
+// Get the sum of elements
+arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// => 10
+
+// Classify the numbers by whether they are odd or not
+arr.reduce(
+  (accumulator, currentValue) => {
+    if (currentValue % 2 === 0) {
+      accumulator.even.push(currentValue);
+    } else {
+      accumulator.odd.push(currentValue);
+    }
+
+    return accumulator;
+  },
+  { even: [], odd: [] }
+);
+// => { even: [2, 4], odd: [1, 3] }
+///////////////////////////////////////////////
+const arr = [1, 2, 3, 4];
+
+arr.reverse();
+// => [4, 3, 2, 1]
+//////////////////////////////////////////////
+const arr = ['1', '2', '5', '6'];
+
+// Insert an element at index 2
+arr.splice(2, 0, '3');
+console.log(arr);
+// => ['1', '2', '3', '5', '6']
+
+// Remove 2 elements, starting at index 3 and insert 2 elements
+const removed = arr.splice(3, 2, '4', '5');
+console.log(removed);
+// => ['5', '6']
+console.log(arr);
+// => ['1', '2', '3', '4', '5']
+
+// Remove 1 element at index 1
+arr.splice(1, 1);
+console.log(arr);
+// => ['1', '3', '4', '5']
+////////////////////////////////////////////
+export function seeingDouble(deck) {
+  const double = deck.map(num=>num*2);
+  return double;
+}
+////////////////////////////////
+
+export function threeOfEachThree(deck) {
+  return deck.map(num => num === 3 ? [3,3,3]:num).flat();
+ }
+ //////////////////////////
+ return deck.reduce((result, card) => {
+  if (card === 3) {
+    result.push(card, card, card)
+  } else {
+    result.push(card)
+  }
+  return result
+}, [])
+/////////////////////////////////////////////
+export function middleTwo(deck) {
+  const middle = deck.length / 2;
+  return deck.slice(middle-1,middle+1);
+}
+//////////////////////
+export function middleTwo(deck) {
+  const middle = deck.length / 2;
+  return deck.slice(middle-1,middle+1);
+}
+////////////////////////////////////////////////
+export function sandwichTrick(deck) {
+  const first = deck.shift();
+  const last = deck.pop();
+  deck.splice(deck.length / 2, 0, last, first)
+  return deck
+}
+//////////////////////////////////
+export function twoIsSpecial(deck) {
+  return deck.filter(num=> num === 2);
+}
+////////////////////////////
+export function perfectlyOrdered(deck) {
+  return deck.sort((a,b)=> a-b);
+ }
+ /////////////////////////////
+ export function reorder(deck) {
+  return deck.reverse();
+}
+////////////////////////////////////////////
