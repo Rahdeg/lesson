@@ -862,4 +862,42 @@ export function perfectlyOrdered(deck) {
  export function reorder(deck) {
   return deck.reverse();
 }
+/////////////////////////////////////////////
+export function isValidCommand(command) {
+  return  /^Chatbot/i.test(command)
+}
+/////////////////////////
+export function removeEmoji(message) {
+  return message.replace(/\b\w*emoji\w*\b/gi, '');
+}
 ////////////////////////////////////////////
+export function checkPhoneNumber(number) {
+  const regex = /^\(\+\d{2}\) \d{3}-\d{3}-\d{3}$/;
+  if(regex.test(number)){
+    return "Thanks! You can now download me to your phone."
+  }else {
+   return `Oops, it seems like I can't reach out to ${number}`
+  }
+}
+/////////////////////////////////////
+export function checkPhoneNumber(number) {
+  const regex = /^\(\+\d{2}\) \d{3}-\d{3}-\d{3}$/;
+  return regex.test(number)? "Thanks! You can now download me to your phone." :`Oops, it seems like I can't reach out to ${number}`
+  // if(regex.test(number)){
+  //   return "Thanks! You can now download me to your phone."
+  // }else {
+  //  return `Oops, it seems like I can't reach out to ${number}`
+  // }
+}
+/////////////////////////////////////////////////
+export function getURL(userInput) {
+  const regex = /[a-z]+\.[a-z]+/g;
+  const matches = userInput.match(regex);
+  return matches? matches : [];
+}
+//////////////////////////////////////
+export function niceToMeetYou(fullName) {
+  const correctName = fullName.replace(/([a-z]+), ([a-z]+)/i, '$2 $1')
+  return `Nice to meet you, ${correctName}`
+}
+///////////////////////////////////////////
