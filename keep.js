@@ -901,3 +901,36 @@ export function niceToMeetYou(fullName) {
   return `Nice to meet you, ${correctName}`
 }
 ///////////////////////////////////////////
+const numbers = [6.0221515, 10, 23];
+
+// Because re-assigning number inside the loop will be very
+// confusing, disallowing that via const is preferable.
+for (const number of numbers) {
+  console.log(number);
+}
+// => 6.0221515
+// => 10
+// => 23
+////////////////////////////////////
+export function cardTypeCheck(stack, card) {
+  let count=0;
+  for (let name of stack) {
+      if(name === card){
+        count ++
+      }
+  }
+  return count;
+}
+////////////////////////////////////////////////
+export function determineOddEvenCards(stack, type) {
+  let count = 0;
+  for (let number of stack) {
+    if(type && number%2 === 0){
+      count ++
+    }else if(!type && number%2 !== 0){
+      count ++
+    }
+  }
+  return count;
+}
+//////////////////////////////////////////////////
