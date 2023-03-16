@@ -933,4 +933,30 @@ export function determineOddEvenCards(stack, type) {
   }
   return count;
 }
-//////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+export function removeDuplicates(playlist) {
+  const newPlaylist = new Set(playlist);
+  return Array.from(newPlaylist);
+}
+////////////////////////////////////////////////////
+export function removeDuplicates(playlist) {
+  return Array.from(new Set(playlist));
+}
+////////////////////////////////////////
+export function deleteTrack(playlist, track) {
+  return playlist.filter(play=> play !==track);
+}
+/////////////////////////////////
+export function addTrack(playlist, track) { 
+  return playlist.includes(track) ? playlist :[...playlist,track]; 
+}
+////////////////////////////////////
+export function listArtists(playlist) {
+  const artists = new Set();
+  playlist.forEach((track)=>{
+    const artist = track.split(' - ')[1]
+    artists.add(artist);
+  })
+ return Array.from(artists);
+}
+/////////////////////////////
